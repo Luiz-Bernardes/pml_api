@@ -17,9 +17,24 @@ class Pokemon < ApplicationRecord
     if !ids.present?
       "No Evolution"
     else
-      pokemons = Pokemon.where(id: ids)
+      pokemons = PokemonService.search(ids)
       pokemons.map(&:name)
     end
+  end
+
+  def evolve_through
+    evolve_list = []
+    self.evolutionary_chains.each do |evolutionary_chain|
+      level = evolutionary_chain.evolution_levelup
+      evo_method = evolutionary_chain.evolution_method
+      level.present? ? evolve_list.push(level) : evolve_list(evo_method)
+    end
+
+    evolve_list
+  end
+
+  def type_names
+    self.types.map(&:name)
   end
 
 end

@@ -3,7 +3,7 @@ class PokemonTypesController < ApplicationController
 
   # GET /pokemon_types
   def index
-    @pokemon_types = PokemonType.all
+    @pokemon_types = PokemonsType.all
 
     render json: @pokemon_types
   end
@@ -15,10 +15,10 @@ class PokemonTypesController < ApplicationController
 
   # POST /pokemon_types
   def create
-    @pokemon_type = PokemonType.new(pokemon_type_params)
+    @pokemon_type = PokemonsType.new(pokemon_type_params)
 
     if @pokemon_type.save
-      render json: @pokemon_type, status: :created, location: @pokemon_type
+      render json: @pokemon_type, status: :created
     else
       render json: @pokemon_type.errors, status: :unprocessable_entity
     end
@@ -41,7 +41,7 @@ class PokemonTypesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pokemon_type
-      @pokemon_type = PokemonType.find(params[:id])
+      @pokemon_type = PokemonsType.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
