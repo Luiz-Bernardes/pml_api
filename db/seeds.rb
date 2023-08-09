@@ -1,10 +1,5 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first) 
 
 Region.create([
 	{ 
@@ -62,3 +57,25 @@ Region.create([
 		pokedex_count: 1010,
 	}, 
 ])
+
+Type.create([
+	{ name: 'Bug'}, 
+	{ name: 'Dark'}, 
+	{ name: 'Dragon'}, 
+	{ name: 'Electr'}, 
+	{ name: 'Fairy'}, 
+	{ name: 'Fight'}, 
+	{ name: 'Fire'}, 
+	{ name: 'Flying'}, 
+	{ name: 'Ghost'},
+	{ name: 'Grass'},
+	{ name: 'Ground'}, 
+	{ name: 'Ice'}, 
+	{ name: 'Normal'}, 
+	{ name: 'Poison'}, 
+	{ name: 'Psychic'}, 
+	{ name: 'Rock'}, 
+	{ name: 'Steel'}, 
+	{ name: 'Water'}, 
+])
+

@@ -45,16 +45,17 @@ class Pokemon {
   +String name
   +String original_name
   +String classification
-  +String height
-  +String weight
-  +String capture_rate
+  +Float height
+  +Float weight
+  +Int capture_rate
   +String experience_growth
   +Int experience_growth_points
 }
 
 class EvolutionaryChain {
   +Int pokemon_id
-  +String levelup
+  +Int evolution_levelup
+  +Text evolution_method
 }
 
 class PokemonEvolutionaryChain {
@@ -63,7 +64,7 @@ class PokemonEvolutionaryChain {
 }
 
 class Type {
-  +Int name
+  +String name
 }
 
 class PokemonType {
@@ -81,3 +82,4 @@ Type "many" *-up-* "many" Pokemon: Composition
 
 # EX
 rails g scaffold entity fields --no-test-framework
+rails destroy scaffold entity
