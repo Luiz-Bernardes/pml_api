@@ -54,13 +54,9 @@ class Pokemon {
 
 class EvolutionaryChain {
   +Int pokemon_id
+  +Int pokemon_evolved_id
   +Int evolution_levelup
   +Text evolution_method
-}
-
-class PokemonEvolutionaryChain {
-  +Int evolutionary_chain_id
-  +Int pokemon_id
 }
 
 class Type {
@@ -83,3 +79,7 @@ Type "many" *-up-* "many" Pokemon: Composition
 # EX
 rails g scaffold entity fields --no-test-framework
 rails destroy scaffold entity
+
+# mono-transitive many to many associations
+has_many :pokemon_evolutionary_chains
+has_many :pokemons, through: :pokemon_evolutionary_chains

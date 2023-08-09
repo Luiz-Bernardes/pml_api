@@ -46,6 +46,6 @@ class EvolutionaryChainsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def evolutionary_chain_params
-      params.require(:evolutionary_chain).permit(:pokemon_id, :evolution_levelup, :evolution_method)
+      params.require(:evolutionary_chain).permit(:pokemon_id, :pokemon_evolved_id, :evolution_levelup, :evolution_method)
     end
 end

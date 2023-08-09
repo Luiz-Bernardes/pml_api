@@ -1,5 +1,5 @@
 class Region < ApplicationRecord
-	# has many associations
+	# one to many associations
 	has_many :pokemons
 	
 	# validations
