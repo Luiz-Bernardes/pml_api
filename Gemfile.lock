@@ -165,6 +165,8 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.12.1)
+    shoulda-matchers (5.3.0)
+      activesupport (>= 5.2.0)
     spring (2.1.1)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
@@ -203,6 +205,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 6.0.6, >= 6.0.6.1)
   rspec-rails (~> 4.1.0)
+  shoulda-matchers (~> 5.0)
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
