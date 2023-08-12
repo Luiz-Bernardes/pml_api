@@ -1,9 +1,9 @@
 class PokemonService
-	def self.find(id)
-		Pokemon.find_by(id: id)
+	def self.find(number)
+		Pokemon.find_by(number: number)
 	end
 
-	def self.search(ids)
-		Pokemon.where(id: ids)
+	def self.search(numbers)
+		Pokemon.where(number: numbers)
 	end
 end
