@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Pokemon, type: :model do  
   before(:each) do 
     @pokemon = create(:pokemon)
+    @type = create(:type)
     @pre_evolution = create(:pokemon, number: 25, name: 'Pikachu')
     @evolution = create(:pokemon, number: 26, name: 'Raichu')
     @evolutionary_chain = create(:evolutionary_chain, 
@@ -11,6 +12,7 @@ RSpec.describe Pokemon, type: :model do
       evolution_method: 'Thunderstone',
       evolution_levelup: nil
     )
+    @pokemons_type = create(:pokemons_type, pokemon: @pokemon , type: @type)
   end
 
   context 'Create validation' do
@@ -47,6 +49,9 @@ RSpec.describe Pokemon, type: :model do
     end
     it '#evolve_through' do
       expect(@pre_evolution.evolve_through.first).to eq(@evolutionary_chain.evolution_method)
+    end
+    it '#type_names' do
+      expect(@pokemon.type_names.first).to eq(@pokemon.types.first.name)
     end
   end
 end
