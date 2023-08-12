@@ -1,4 +1,8 @@
 class PokemonsType < ApplicationRecord
+	# belongs associations
+	belongs_to :pokemon
+	belongs_to :type
+
 	# validations
-  validates :pokemon_id, :type_id, presence: true
+  validates :pokemon, :type, presence: true
 end
