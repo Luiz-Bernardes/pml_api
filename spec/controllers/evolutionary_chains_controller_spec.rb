@@ -32,7 +32,7 @@ RSpec.describe EvolutionaryChainsController, type: :controller do
 
   it "DELETE /destroy" do
     evolutionary_chain = create(:evolutionary_chain)
-    put :destroy, params: { id: evolutionary_chain.id }
+    delete :destroy, params: { id: evolutionary_chain.id }
     expect(response).to have_http_status(204)
   end
 end

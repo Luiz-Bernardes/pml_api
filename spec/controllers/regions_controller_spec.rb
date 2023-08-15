@@ -30,7 +30,7 @@ RSpec.describe RegionsController, type: :controller do
 
   it "DELETE /destroy" do
     region = create(:region)
-    put :destroy, params: { id: region.id }
+    delete :destroy, params: { id: region.id }
     expect(response).to have_http_status(204)
   end
 end

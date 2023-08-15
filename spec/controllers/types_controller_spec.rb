@@ -30,7 +30,7 @@ RSpec.describe TypesController, type: :controller do
 
   it "DELETE /destroy" do
     type = create(:type)
-    put :destroy, params: { id: type.id }
+    delete :destroy, params: { id: type.id }
     expect(response).to have_http_status(204)
   end
 end

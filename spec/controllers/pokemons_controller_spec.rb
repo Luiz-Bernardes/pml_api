@@ -32,7 +32,7 @@ RSpec.describe PokemonsController, type: :controller do
 
   it "DELETE /destroy" do
     pokemon = create(:pokemon)
-    put :destroy, params: { id: pokemon.id }
+    delete :destroy, params: { id: pokemon.id }
     expect(response).to have_http_status(204)
   end
 end
