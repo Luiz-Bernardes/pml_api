@@ -76,6 +76,9 @@ GEM
       activesupport (>= 5.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    json_matchers (0.11.1)
+      json_schema
+    json_schema (0.21.0)
     jwt (2.7.1)
     listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -199,6 +202,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   factory_bot_rails
+  json_matchers
   jwt
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)

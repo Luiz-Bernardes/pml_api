@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "region": {
+      "required": ["id", "name", "generation", "games", "pokedex_count"],
+      "properties": {
+        "id" : {"type": "integer"},
+        "email" : {"type": "string"},
+        "generation" : {"type": "string"},
+        "games" : {"type": "string"},
+        "pokedex_count" : {"type": "integer"}
+      }
+    }
+  }
+}
