@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Regions", type: :request do
+RSpec.describe "RegionsRequest", type: :request do
   before(:each) do 
     @region = create(:region)
   end

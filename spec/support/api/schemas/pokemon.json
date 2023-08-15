@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "pokemon": {
+      "required": ["id", "number", "name", "region_id"],
+      "properties": {
+        "id" : {"type": "integer"},
+        "number" : {"type": "string"},
+        "name" : {"type": "string"},
+        "original_name" : {"type": "string"},
+        "classification" : {"type": "string"},
+        "height" : {"type": "number"},
+        "weight" : {"type": "number"},
+        "capture_rate" : {"type": "integer"},
+        "experience_growth" : {"type": "string"},
+        "experience_growth_points" : {"type": "integer"},
+        "region_id" : {"type": "integer"}
+      }
+    }
+  }
+}
