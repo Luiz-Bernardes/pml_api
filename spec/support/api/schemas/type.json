@@ -1,7 +1,7 @@
 {
   "type": "object",
   "properties": {
-    "region": {
+    "type": {
       "required": ["id", "name"],
       "properties": {
         "id" : {"type": "integer"},

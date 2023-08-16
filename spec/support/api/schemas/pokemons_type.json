@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "properties": {
+    "pokemons_type": {
+      "required": ["id", "pokemon_id", "type_id"],
+      "properties": {
+        "pokemon_id" : {"type": "integer"},
+        "type_id" : {"type": "integer"}
+      }
+    }
+  }
+}

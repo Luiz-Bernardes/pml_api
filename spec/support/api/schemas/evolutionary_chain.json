@@ -1,7 +1,7 @@
 {
   "type": "object",
   "properties": {
-    "pokemon": {
+    "evolutionary_chain": {
       "required": ["id", "pokemon_id"],
       "properties": {
         "pokemon_id" : {"type": "integer"},

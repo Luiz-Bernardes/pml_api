@@ -5,7 +5,7 @@
       "required": ["id", "name", "generation", "games", "pokedex_count"],
       "properties": {
         "id" : {"type": "integer"},
-        "email" : {"type": "string"},
+        "name" : {"type": "string"},
         "generation" : {"type": "string"},
         "games" : {"type": "string"},
         "pokedex_count" : {"type": "integer"}
