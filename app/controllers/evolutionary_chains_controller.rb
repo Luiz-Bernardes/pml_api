@@ -5,12 +5,12 @@ class EvolutionaryChainsController < ApplicationController
   def index
     @evolutionary_chains = EvolutionaryChain.all
 
-    render json: @evolutionary_chains
+    render json: serialize_evolutionary_chain(@evolutionary_chains, options)
   end
 
   # GET /evolutionary_chains/1
   def show
-    render json: @evolutionary_chain
+    render json: serialize_evolutionary_chain(@evolutionary_chain, options)
   end
 
   # POST /evolutionary_chains
@@ -18,7 +18,7 @@ class EvolutionaryChainsController < ApplicationController
     @evolutionary_chain = EvolutionaryChain.new(evolutionary_chain_params)
 
     if @evolutionary_chain.save
-      render json: @evolutionary_chain, status: :created, location: @evolutionary_chain
+      render json: serialize_evolutionary_chain(@evolutionary_chain, options), status: :created, location: @evolutionary_chain
     else
       render json: @evolutionary_chain.errors, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class EvolutionaryChainsController < ApplicationController
   # PATCH/PUT /evolutionary_chains/1
   def update
     if @evolutionary_chain.update(evolutionary_chain_params)
-      render json: @evolutionary_chain
+      render json: serialize_evolutionary_chain(@evolutionary_chain, options)
     else
       render json: @evolutionary_chain.errors, status: :unprocessable_entity
     end
@@ -44,8 +44,16 @@ class EvolutionaryChainsController < ApplicationController
       @evolutionary_chain = EvolutionaryChain.find(params[:id])
     end
 
+    def serialize_evolutionary_chain query, options
+      EvolutionaryChainSerializer.new(query, options).serialized_json
+    end
+
     # Only allow a trusted parameter "white list" through.
     def evolutionary_chain_params
       params.require(:evolutionary_chain).permit(:pokemon_id, :pokemon_evolved_id, :evolution_levelup, :evolution_method)
+    end
+
+    def options
+      @options ||= { include: %i[] } 
     end
 end

@@ -5,12 +5,12 @@ class PokemonsController < ApplicationController
   def index
     @pokemons = Pokemon.all
 
-    render json: @pokemons
+    render json: serialize_pokemon(@pokemons, options)
   end
 
   # GET /pokemons/1
   def show
-    render json: @pokemon
+    render json: serialize_pokemon(@pokemon, options)
   end
 
   # POST /pokemons
@@ -18,7 +18,7 @@ class PokemonsController < ApplicationController
     @pokemon = Pokemon.new(pokemon_params)
 
     if @pokemon.save
-      render json: @pokemon, status: :created, location: @pokemon
+      render json: serialize_pokemon(@pokemon, options), status: :created, location: @pokemon
     else
       render json: @pokemon.errors, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class PokemonsController < ApplicationController
   # PATCH/PUT /pokemons/1
   def update
     if @pokemon.update(pokemon_params)
-      render json: @pokemon
+      render json: serialize_pokemon(@pokemon, options)
     else
       render json: @pokemon.errors, status: :unprocessable_entity
     end
@@ -44,8 +44,16 @@ class PokemonsController < ApplicationController
       @pokemon = Pokemon.find(params[:id])
     end
 
+    def serialize_pokemon query, options
+      PokemonSerializer.new(query, options).serialized_json
+    end
+
     # Only allow a trusted parameter "white list" through.
     def pokemon_params
       params.require(:pokemon).permit(:region_id, :number, :name, :original_name, :classification, :height, :weight, :capture_rate, :experience_growth, :experience_growth_points, :url_image)
+    end
+
+    def options
+      @options ||= { include: %i[evolutionary_chains types] } 
     end
 end
