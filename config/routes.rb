@@ -1,8 +1,13 @@
-Rails.application.routes.draw do
+  Rails.application.routes.draw do
+  root 'pages#index'
+  
+  # Resources
   resources :pokemon_types
   resources :types
   resources :evolutionary_chains
   resources :pokemons
   resources :regions
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  # Index
+  get '*path', to: 'pages#index', via: :all
 end
