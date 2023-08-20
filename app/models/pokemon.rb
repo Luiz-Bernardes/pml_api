@@ -37,4 +37,13 @@ class Pokemon < ApplicationRecord
     self.types.map(&:name)
   end
 
+  def as_json(options={})
+    super(:except => [:created_at, :updated_at],
+          :include => {
+            :region => {:only => [:name]},
+            :types => {:only => [:name]}
+          }
+    )
+  end
+
 end

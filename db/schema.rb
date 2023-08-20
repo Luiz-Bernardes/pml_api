@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_09_213807) do
+ActiveRecord::Schema.define(version: 2023_08_18_043414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2023_08_09_213807) do
     t.integer "experience_growth_points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "url_image"
     t.index ["region_id"], name: "index_pokemons_on_region_id"
   end
 
